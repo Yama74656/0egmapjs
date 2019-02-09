@@ -19,7 +19,6 @@ window.onload = function() {
 	
 	map.addIcon(35.94350, 136.188917,"鯖江駅")
 	map.addIcon(35.944571, 136.186228,"Hana道場","icon-megane.png",64)
-}
 // SPARQLクエリー
 	var query = `
 		prefix ic: <http://imi.go.jp/ns/core/rdf#>
@@ -40,6 +39,7 @@ window.onload = function() {
 			map.addIcon(lat, lng, name)
 		}
 	});
+}
 </script>
 <style>
 
