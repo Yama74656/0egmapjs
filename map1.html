@@ -39,8 +39,7 @@ window.onload = function() {
 			map.addIcon(lat, lng, name,"icon-carparking.png",50,50)
 		}
 	});
-	
-	
+
 	var current = map.addIcon(0, 0, "現在地", "icon-walking.png", 64, 64)
 	navigator.geolocation.watchPosition(function(gpos) {
 		const pos = [ gpos.coords.latitude, gpos.coords.longitude ]
