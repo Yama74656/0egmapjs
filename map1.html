@@ -52,6 +52,30 @@ window.onload = function() {
 	
 	map.on("click", (e) => alert(e.latlng))
 	
+	//java.appletパッケージをimport宣言
+//Graphicsクラスはawtパッケージに属しているのでawtパッケージもimport宣言
+import java.applet.*;
+import java.awt.*;
+//Appletクラスを継承
+public class AppletSample13 extends Applet{
+     public void paint(Graphics g){
+
+   //多角形を描く
+         g.setColor(Color.orange);
+
+        int x[]={50,10,25,75,90};
+        int y[]={10,40,70,70,40};
+         g.drawPolygon(x,y,5);
+   //塗りつぶされた多角形を描く
+        g.setColor(Color.pink);
+        int x1[]={150,110,125,175,190};
+        int y1[]={10,40,70,70,40};
+         g.fillPolygon(x1,y1,5);
+     }
+
+}
+
+	
 	
 	
 }
