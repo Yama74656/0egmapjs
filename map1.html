@@ -19,21 +19,16 @@ window.onload = function() {
 	
 	map.addIcon(36.06165, 136.223546,"福井駅")
 	
-	map.addIcon(36.062263,136.222962,"福井駅")
-	map.addIcon(36.062782,136.216431,"東映前")
-	map.addIcon(36.063251,136.21402,"片町入口")
-	
 // SPARQLクエリー
 	var query = `
 		prefix ic: <http://imi.go.jp/ns/core/rdf#>
 		prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-		prefix iid: <http://busnavi.keifuku.co.jp:81/rosenLookup.php>
+		prefix xsd <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+
 	:
 		select ?uri ?name ?lat ?lng {
 			?uri ic:名称 [ ic:表記 ?name ].
-			?uri ic:地理座標 [ ic:緯度 ?lat; ic:経度 ?lng; ].
-			?uri ic:路線番号 [ ic:rosenid ?small; ic:keitoid ?small;].
-			
+			?uri ic:地理座標 [ ic:緯度 ?lat; ic:経度 ?lng;]
 		} limit 100
 	`
 	querySPARQL(query, function(data) {
