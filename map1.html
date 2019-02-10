@@ -28,7 +28,9 @@ window.onload = function() {
 		select ?uri ?name ?lat ?lng {
 			?uri ic:名称 [ ic:表記 ?name ].
 			?uri ic:地理座標 [ ic:緯度 ?lat; ic:経度 ?lng; ].
-			?uri ic:路線番号 [ ic:rosenid ?name; ic:keitoid ?name;].
+			?uri ic:路線番号 [ ic:rosenid ?small; ic:keitoid ?small;].
+
+jsonp_callback({realtime:[{"rosenid":1,"keitoid":2,"lat":36.056992,"lon":136.199661,"busstopodr":15,"datetime":"20130201085742"}]})
 			
 		} limit 100
 	`
