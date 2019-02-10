@@ -23,12 +23,13 @@ window.onload = function() {
 	var query = `
 		prefix ic: <http://imi.go.jp/ns/core/rdf#>
 		prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-		prefix xsd: <http://busnavi.keifuku.co.jp:81/rosenLookup.php>
+		prefix iid: <http://busnavi.keifuku.co.jp:81/rosenLookup.php>
 	:
 		select ?uri ?name ?lat ?lng {
 			?uri ic:名称 [ ic:表記 ?name ].
 			?uri ic:地理座標 [ ic:緯度 ?lat; ic:経度 ?lng; ].
-			filter(contains(str(?name),''))
+			?uri ic:路線番号 [ ic:rosenid ?lat; ic:keitoid ?lng;].
+			
 		} limit 100
 	`
 	querySPARQL(query, function(data) {
